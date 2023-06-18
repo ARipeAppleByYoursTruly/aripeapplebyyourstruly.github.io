@@ -1,0 +1,80 @@
+<mxfile host="65bd71144e">
+    <diagram id="_lAC_nYuBXd0YWF9XBeg" name="Overview">
+        <mxGraphModel dx="1421" dy="829" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" value="aripeapplebyyourstruly.github.io" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="400" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="My Stuff" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="200" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="About" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="200" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=classic;html=1;fontSize=24;strokeWidth=3;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="240" y="120" as="sourcePoint"/>
+                        <mxPoint x="240" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="qjLL-3F5L6U1pmbylexE" name="My Stuff">
+        <mxGraphModel dx="1809" dy="1055" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="33TvlrovckMQAgLQlb59-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="600" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="33TvlrovckMQAgLQlb59-2" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Header&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="600" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-2" value="Filters" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="130" width="600" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-3" value="Display stuff in a grid" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="370" width="600" height="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="40" width="600" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="40" width="600" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-6" value="My Stuff" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=5" parent="1" vertex="1">
+                    <mxGeometry x="800" y="70" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-7" value="About" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="920" y="70" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-8" value="Logo" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="40" width="90" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-9" value="Filters" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="130" width="600" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-10" value="Display stuff in a grid" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="370" width="600" height="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-11" value="Categories:&lt;br&gt;- Games&lt;br&gt;- Game strats&lt;br&gt;- Windows 10 fixes&lt;br&gt;- Artworks&lt;br&gt;&lt;br&gt;(Hold this off until I made a lot of stuff)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="1290" y="130" width="410" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="VvzBKF6Dc0xHEitdUtC9-12" value="- Each stuff is a seperate Github repo&lt;br&gt;- Check docs/card-info to display the repo as a card here&lt;br&gt;- docs/card-info should have an image and a text file&lt;br&gt;- Text file has title, description, and tags" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="1290" y="420" width="370" height="240" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="n9DCHwyviJzGz5uip9oN" name="About">
+        <mxGraphModel dx="1421" dy="829" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
