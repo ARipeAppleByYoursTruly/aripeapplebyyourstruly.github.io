@@ -1,0 +1,26 @@
+/* Colors */
+:root {
+  --base: #0056CD;
+  --light: #E2F4FF;
+  --dark: #002353;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--light);
+  color: var(--dark);
+  font-size: 18pt;
+}
+
+
+
+/* Dark theme */
+html.dark {
+  background-color: var(--dark);
+  color: var(--light);
+}

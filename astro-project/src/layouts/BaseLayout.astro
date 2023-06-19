@@ -1,4 +1,6 @@
 ---
+import Header from '/src/components/Header.astro'
+
 const {pageTitle} = Astro.props
 const pageTitleAfter = "Appleandroid's Website"
 ---
@@ -11,11 +13,13 @@ const pageTitleAfter = "Appleandroid's Website"
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
 
   <title>{pageTitle} &ndash; {pageTitleAfter}</title>
 </head>
 <body>
+  <Header />
   <h1>{pageTitle}</h1>
 </body>
 </html>
