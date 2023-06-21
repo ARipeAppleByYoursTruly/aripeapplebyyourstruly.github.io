@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+import RepoList from "../components/RepoList.astro"
 
 const pageTitle = "My Stuff"
 ---
 
 
 
-<BaseLayout pageTitle={pageTitle} />
+<BaseLayout pageTitle={pageTitle}>
+  <RepoList />
+</BaseLayout>
