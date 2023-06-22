@@ -1,12 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
-import RepoList from "../components/RepoList.astro"
-
-const pageTitle = "My Stuff"
+import {RepoList} from "../components/RepoList"
 ---
 
 
 
-<BaseLayout pageTitle={pageTitle}>
-  <RepoList />
+<BaseLayout pageTitle="My Stuff">
+  <RepoList githubUsername="ARipeAppleByYoursTruly" client:load />
 </BaseLayout>
