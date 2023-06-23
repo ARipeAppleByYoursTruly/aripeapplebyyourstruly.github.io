@@ -3,6 +3,16 @@
   --base: #0056CD;
   --light: #E2F4FF;
   --dark: #002353;
+
+  --background: var(--light);
+  --onBackground: var(--dark);
+  --accent: var(--base);
+}
+
+/* Dark theme */
+.dark {
+  --background: var(--dark);
+  --onBackground: var(--light);
 }
 
 
@@ -12,8 +22,8 @@
 }
 
 html {
-  background-color: var(--light);
-  color: var(--dark);
+  background-color: var(--background);
+  color: var(--onBackground);
   font-size: 18pt;
 }
 
@@ -24,7 +34,7 @@ h1 {
 
 
 /* Dark theme */
-html.dark {
+/* html.dark {
   background-color: var(--dark);
   color: var(--light);
-}
+} */
