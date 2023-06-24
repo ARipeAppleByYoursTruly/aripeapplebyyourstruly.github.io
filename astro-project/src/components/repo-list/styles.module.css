@@ -1,6 +1,4 @@
 .repolist {
-  background-color: #ffd7d7;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   grid-gap: 1rem;
@@ -12,9 +10,6 @@
 
 .repolist-item {
   border: 0.1rem solid var(--accent);
-  color: var(--onBackground);
-  text-decoration: none;
-
   padding: 0.5rem;
 }
 

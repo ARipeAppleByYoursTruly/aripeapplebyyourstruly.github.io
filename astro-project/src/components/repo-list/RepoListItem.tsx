@@ -18,7 +18,7 @@ export function RepoListItem(props: RepoListItemProps) {
     <Suspense fallback={<div class={styles["repolist-item"]}>Loading...</div>}>
       <a href={pagesUrl()} class={styles["repolist-item"]}>
         <img src={thumbnail()} alt={`Thumbnail image for ${props.githubUsername}'s ${props.repo.name} repository`}/>
-        <div>{shortenRepoName("asdasdasdasdasdasdasdasdasdasdf")}</div>
+        <div>{shortenRepoName(props.repo.name)}</div>
         <Show when={props.repo.description != ""}>
           <div>{props.repo.description}</div>
         </Show>

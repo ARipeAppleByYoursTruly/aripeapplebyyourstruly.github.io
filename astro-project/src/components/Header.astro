@@ -1,3 +1,9 @@
+---
+import {ThemeButton} from "./theme-button/ThemeButton"
+---
+
+
+
 <header>
   <svg
   id="logo"
@@ -98,13 +104,13 @@
   </svg>
   <div><a href="/">My Stuff</a></div>
   <div><a href="">About Me</a></div>
+  <ThemeButton client:only="solid-js" />
 </header>
 
 
 
 <style>
   header {
-    background-color: #aaaaaa;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -130,19 +136,23 @@
     fill-rule: nonzero;
     opacity: 1;
 
-    fill: var(--base);
-  }
-
-  /* Dark theme */
-  html.dark path {
-    fill: var(--light);
+    fill: var(--iconColor);
   }
 
 
 
   /* Nav links */
   div {
-    background-color: grey;
     padding: 0.2rem;
+    order: 2;
+  }
+
+
+
+  @media only screen and (max-width: 400px) {
+    div {
+      width: 100%;
+      text-align: center;
+    }
   }
 </style>

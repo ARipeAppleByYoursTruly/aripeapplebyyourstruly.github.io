@@ -1,5 +1,6 @@
 ---
-import Header from '/src/components/Header.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
 
 const {pageTitle} = Astro.props
 const pageTitleAfter = "Appleandroid's Website"
@@ -22,5 +23,6 @@ const pageTitleAfter = "Appleandroid's Website"
   <Header />
   <h1>{pageTitle}</h1>
   <slot />
+  <Footer />
 </body>
 </html>

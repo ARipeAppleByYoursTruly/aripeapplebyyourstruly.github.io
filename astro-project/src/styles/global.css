@@ -1,18 +1,22 @@
 /* Colors */
 :root {
   --base: #0056CD;
+  --baseLighter: #4b96ff;
   --light: #E2F4FF;
-  --dark: #002353;
+  --dark: #000e22;
 
   --background: var(--light);
   --onBackground: var(--dark);
   --accent: var(--base);
+  --iconColor: var(--base);
 }
 
 /* Dark theme */
 .dark {
   --background: var(--dark);
   --onBackground: var(--light);
+  --accent: var(--baseLighter);
+  --iconColor: var(--light);
 }
 
 
@@ -31,10 +35,7 @@ h1 {
   text-align: center;
 }
 
-
-
-/* Dark theme */
-/* html.dark {
-  background-color: var(--dark);
-  color: var(--light);
-} */
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
