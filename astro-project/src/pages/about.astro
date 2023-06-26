@@ -1,0 +1,41 @@
+---
+import BaseLayout from "/src/layouts/BaseLayout.astro"
+---
+
+
+
+<BaseLayout>
+  <div>
+   <img src="/images/toilet-mug.jpg" alt="Apple's profile picture" />
+    <p>Hi, you might've known me as</p>
+    <ul>
+      <li>Appleandroid</li>
+      <li>RipeApple</li>
+      <li>ARipeAppleByYoursTruly</li>
+    </ul>
+    <p>But for simplicty, call me Apple</p>
+    <p>I'm just a guy who plays games and do some programming</p>
+    <p>That's it really, nothing else seems noteworthy to me</p>
+  </div>
+</BaseLayout>
+
+
+
+<style>
+  img {
+    border-radius: 50%;
+    width: 200px;
+
+    display: block;
+    margin: auto;
+  }
+
+  div {
+    background-color: color-mix(in srgb, var(--background), var(--base) 30%);
+    padding: 0.5rem;
+    border-radius: 20px;
+
+    width: min(100%, 500px);
+    margin: auto;
+  }
+</style>

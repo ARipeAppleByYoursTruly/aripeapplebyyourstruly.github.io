@@ -78,7 +78,9 @@ a {
   text-decoration: none;
   color: var(--accent);
 
-  transition: all .3s cubic-bezier(.36, .75, 0, 1);
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(.36, .75, 0, 1);
+  transition-property: color;
 }
 a:hover {
   color: var(--accentOnHover);

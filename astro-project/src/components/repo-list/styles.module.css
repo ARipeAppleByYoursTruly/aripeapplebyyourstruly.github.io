@@ -12,6 +12,8 @@
   border: 0.1rem solid var(--accent);
   border-radius: 20px;
   padding: 0.5rem;
+
+  transition-property: color, border, background-color;
 }
 .repolist-item:hover {
   border-color: var(--accentOnHover);
