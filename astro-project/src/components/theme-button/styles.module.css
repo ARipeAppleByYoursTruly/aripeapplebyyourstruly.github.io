@@ -9,12 +9,21 @@
 
 
 .themeButton-icon {
-  fill: var(--iconColor);
+  fill: var(--accent);
+  cursor: pointer;
+
+  transition: all .3s cubic-bezier(.36, .75, 0, 1);
+}
+.themeButton-icon:hover {
+  fill: var(--accentOnHover);
+}
+.themeButton-icon:active {
+  fill: var(--accentOnClick);
 }
 
 
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 430px) {
   .themeButton {
     order: 1;
   }

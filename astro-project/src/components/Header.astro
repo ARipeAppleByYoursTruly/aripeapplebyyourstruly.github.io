@@ -102,8 +102,8 @@ import {ThemeButton} from "./theme-button/ThemeButton"
 
     </g>
   </svg>
-  <div><a href="/">My Stuff</a></div>
-  <div><a href="">About Me</a></div>
+  <a href="/"><div>My Stuff</div></a>
+  <a href=""><div>About Me</div></a>
   <ThemeButton client:only="solid-js" />
 </header>
 
@@ -136,23 +136,37 @@ import {ThemeButton} from "./theme-button/ThemeButton"
     fill-rule: nonzero;
     opacity: 1;
 
-    fill: var(--iconColor);
+    fill: var(--onBackground);
   }
 
 
 
   /* Nav links */
-  div {
-    padding: 0.2rem;
+  a {
+    margin: 0.5rem;
     order: 2;
   }
 
 
 
-  @media only screen and (max-width: 400px) {
-    div {
+  @media only screen and (max-width: 430px) {
+    header {
+      gap: unset;
+    }
+
+    a {
       width: 100%;
       text-align: center;
+
+      border-top: 1px solid var(--onBackground);
+      margin: unset;
+      padding: 0.5rem;
+    }
+    a:first-of-type {
+      margin-top: 0.3rem;
+    }
+    a:last-of-type {
+      border-bottom: 1px solid var(--onBackground);
     }
   }
 </style>

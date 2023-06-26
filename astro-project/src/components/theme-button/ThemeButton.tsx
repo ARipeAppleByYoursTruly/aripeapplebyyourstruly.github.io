@@ -9,6 +9,7 @@ export function ThemeButton() {
   const changeTheme = () => {
     setIsDarkTheme(!isDarkTheme())
     changeThemeColor(isDarkTheme())
+    saveThemeToStorage(isDarkTheme())
   }
 
   changeThemeColor(isDarkTheme())
@@ -54,4 +55,12 @@ function changeThemeColor(isDarkTheme) {
   else {
     document.querySelector("html").classList.remove("dark")
   }
+}
+
+
+
+function saveThemeToStorage(isDarkTheme) {
+  const theme = isDarkTheme ? "dark" : "light"
+
+  window.localStorage.setItem("theme", theme)
 }

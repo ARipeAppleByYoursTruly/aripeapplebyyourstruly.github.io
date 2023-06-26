@@ -15,7 +15,7 @@
     stroke-dashoffset: 0;
     stroke-linejoin: miter;
     stroke-miterlimit: 4;
-    fill: #0056CD;
+    fill: #000e22;
     fill-rule: nonzero;
     opacity: 1;
   }
