@@ -1,0 +1,91 @@
+/* Fonts */
+@font-face {
+  font-family: Roboto;
+  src: url("/fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("/fonts/Roboto-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("/fonts/Roboto-Italic.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("/fonts/Roboto-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+
+/* Colors */
+:root {
+  --base: #0056CD;
+  --baseLighter: #4b96ff;
+  --light: #E2F4FF;
+  --dark: #000e22;
+
+  --background: var(--light);
+  --onBackground: var(--dark);
+  --accent: var(--base);
+
+  --backgroundOnHover: color-mix(in srgb, var(--background), var(--baseLighter) 5%);
+  --backgroundOnClick: color-mix(in srgb, var(--background), black 5%);
+
+  --accentOnHover: color-mix(in srgb, var(--accent), var(--baseLighter) 80%);
+  --accentOnClick: color-mix(in srgb, var(--accent), black);
+}
+
+/* Dark theme */
+.dark {
+  --background: var(--dark);
+  --onBackground: var(--light);
+  --accent: var(--baseLighter);
+
+  --backgroundOnHover: color-mix(in srgb, var(--background), white 10%);
+  --backgroundOnClick: color-mix(in srgb, var(--background) 80%, black);
+
+  --accentOnHover: color-mix(in srgb, var(--accent), white);
+  --accentOnClick: color-mix(in srgb, var(--accent) 70%, black);
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--background);
+  color: var(--onBackground);
+
+  font-family: Roboto, sans-serif;
+  font-size: 15pt;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(.36, .75, 0, 1);
+  transition-property: color;
+}
+a:hover {
+  color: var(--accentOnHover);
+  text-decoration: underline;
+}
+a:active {
+  color: var(--accentOnClick);
+}

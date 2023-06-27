@@ -1,0 +1,40 @@
+.repolist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 1rem;
+
+  text-align: center;
+}
+
+
+
+.repolist-item {
+  border: 0.1rem solid var(--accent);
+  border-radius: 20px;
+  padding: 0.5rem;
+
+  transition-property: color, border, background-color;
+}
+.repolist-item:hover {
+  border-color: var(--accentOnHover);
+  background-color: var(--backgroundOnHover);
+}
+.repolist-item:active {
+  border-color: var(--accentOnClick);
+  background-color: var(--backgroundOnClick);
+}
+
+.repolist-item img {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+}
+
+.repolist-item div:first-of-type {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.repolist-item div:last-of-type {
+  font-size: 0.8rem;
+}
