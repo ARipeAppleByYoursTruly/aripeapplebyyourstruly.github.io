@@ -30,7 +30,7 @@ export function ThemeButton() {
 
 
 
-function getThemeFromStorage(): Boolean {
+export function getThemeFromStorage(): Boolean {
   let theme = ""
 
   if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
@@ -48,7 +48,7 @@ function getThemeFromStorage(): Boolean {
 
 
 
-function changeThemeColor(isDarkTheme) {
+export function changeThemeColor(isDarkTheme) {
   if (isDarkTheme) {
     document.querySelector("html").classList.add("dark")
   }
