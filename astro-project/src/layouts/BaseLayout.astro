@@ -18,6 +18,28 @@ const pageTitleAfter = "Appleandroid's Website"
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
 
   <title>{pageTitle} &ndash; {pageTitleAfter}</title>
+
+  <!-- To avoid Flash of Unstyled Content (FoUC) -->
+  <script>
+    let theme = ""
+
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      theme = localStorage.getItem("theme") as string
+    }
+    else if (window.matchMedia("(prefers-color-theme: dark)").matches) {
+      theme = "dark"
+    }
+    else {
+      theme = "light"
+    }
+
+    if (theme == "dark") {
+    document.querySelector("html").classList.add("dark")
+    }
+    else {
+      document.querySelector("html").classList.remove("dark")
+    }
+  </script>
 </head>
 <body>
   <Header />

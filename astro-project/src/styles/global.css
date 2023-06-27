@@ -35,6 +35,7 @@
   --background: var(--light);
   --onBackground: var(--dark);
   --accent: var(--base);
+  --container: color-mix(in srgb, var(--background), var(--baseLighter) 30%);
 
   --backgroundOnHover: color-mix(in srgb, var(--background), var(--baseLighter) 5%);
   --backgroundOnClick: color-mix(in srgb, var(--background), black 5%);
@@ -48,12 +49,13 @@
   --background: var(--dark);
   --onBackground: var(--light);
   --accent: var(--baseLighter);
+  --container: color-mix(in srgb, var(--background), var(--base) 30%);
 
   --backgroundOnHover: color-mix(in srgb, var(--background), white 10%);
-  --backgroundOnClick: color-mix(in srgb, var(--background) 80%, black);
+  --backgroundOnClick: color-mix(in srgb, var(--background), black 20%);
 
   --accentOnHover: color-mix(in srgb, var(--accent), white);
-  --accentOnClick: color-mix(in srgb, var(--accent) 70%, black);
+  --accentOnClick: color-mix(in srgb, var(--accent), black 30%);
 }
 
 
