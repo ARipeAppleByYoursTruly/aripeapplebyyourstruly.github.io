@@ -17,10 +17,12 @@ export function RepoListItem(props: RepoListItemProps) {
   return (
     <Suspense fallback={<div class={styles["repolist-item"]}>Loading...</div>}>
       <a href={pagesUrl()} class={styles["repolist-item"]}>
-        <img src={thumbnail()} alt={`Thumbnail image for ${props.githubUsername}'s ${props.repo.name} repository`}/>
-        <div>{shortenRepoName(props.repo.name)}</div>
+        <div class={styles["image-container"]}>
+          <img src={thumbnail()} alt={`Thumbnail image for ${props.githubUsername}'s ${props.repo.name} repository`}/>
+        </div>
+        <div class={styles["title"]}>{shortenRepoName(props.repo.name)}</div>
         <Show when={props.repo.description != ""}>
-          <div>{props.repo.description}</div>
+          <div class={styles["description"]}>{props.repo.description}</div>
         </Show>
       </a>
     </Suspense>
