@@ -1,4 +1,5 @@
 /* Fonts */
+/* === */
 @font-face {
   font-family: Roboto;
   src: url("/fonts/Roboto-Regular.ttf");
@@ -26,10 +27,11 @@
 
 
 /* Colors */
+/* === */
 :root {
-  --base: #0056CD;
+  --base: #0056cd;
   --baseLighter: #4b96ff;
-  --light: #E2F4FF;
+  --light: #e2f4ff;
   --dark: #000e22;
 
   --background: var(--light);
@@ -41,7 +43,7 @@
   --backgroundOnClick: color-mix(in srgb, var(--background), black 5%);
 
   --accentOnHover: color-mix(in srgb, var(--accent), var(--baseLighter) 80%);
-  --accentOnClick: color-mix(in srgb, var(--accent), black);
+  --accentOnClick: color-mix(in srgb, var(--accent), black 25%);
 }
 
 /* Dark theme */
@@ -60,34 +62,16 @@
 
 
 
-* {
-  box-sizing: border-box;
+/* Styles */
+/* === */
+:root {
+  scrollbar-gutter: stable both-edges;
+
+  font-family: Roboto;
+  font-size: 16pt;
 }
 
-html {
-  background-color: var(--background);
+body {
+  background: var(--background);
   color: var(--onBackground);
-
-  font-family: Roboto, sans-serif;
-  font-size: 15pt;
-}
-
-h1 {
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: var(--accent);
-
-  transition-duration: .3s;
-  transition-timing-function: cubic-bezier(.36, .75, 0, 1);
-  transition-property: color;
-}
-a:hover {
-  color: var(--accentOnHover);
-  text-decoration: underline;
-}
-a:active {
-  color: var(--accentOnClick);
 }

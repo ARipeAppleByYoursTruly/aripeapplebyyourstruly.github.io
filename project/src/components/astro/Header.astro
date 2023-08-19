@@ -1,0 +1,33 @@
+---
+import WebsiteLogo from "./WebsiteLogo.astro"
+import NavMenu from "../solid/NavMenu"
+import ThemeButton from "../solid/ThemeButton"
+---
+
+
+
+<header
+  class="
+    display:flex
+    flex-wrap:wrap
+    justify-content:space-between
+    align-items:center
+    row-gap:10px
+
+    margin:10px_10px_0
+    border-bottom:1px_solid_var(--onBackground)
+
+    @non-mobile@padding-bottom:10px
+  "
+>
+  <WebsiteLogo
+    class={`
+      fill:var(--onBackground)
+
+      width:80px
+      height:80px
+    `}
+  />
+  <NavMenu client:load/>
+  <ThemeButton client:only="solid-js"/>
+</header>

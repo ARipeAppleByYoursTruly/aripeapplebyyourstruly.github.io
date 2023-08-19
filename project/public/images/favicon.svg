@@ -1,23 +1,43 @@
----
-import {ThemeButton} from "./theme-button/ThemeButton"
----
-
-
-
-<header>
-  <svg
-  id="logo"
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   version="1.1"
+  width="5000"
+  height="5000"
   viewBox="0 0 5000 5000"
-  xml:space="preserve">
+  xml:space="preserve"
+>
+  <desc>Created with Fabric.js 5.3.0</desc>
+  <style>
+    path {
+      fill: #000e22;
+    }
 
-    <g transform="matrix(1 0 0 1 2499.9994115945 2499.9999849745)" id="iz3J8xSXmPgf3wUlYqo1X">
-      <path
+    @media (prefers-color-scheme: dark) {
+      path {
+        fill: #e2f4ff;
+      }
+    }
+  </style>
+  <g transform="matrix(1 0 0 1 2499.9994115945 2499.9999849745)" id="iz3J8xSXmPgf3wUlYqo1X">
+    <path
+      style="
+        stroke: rgb(207,69,228);
+        stroke-width: 0;
+        stroke-dasharray: none;
+        stroke-linecap: butt;
+        stroke-dashoffset: 0;
+        stroke-linejoin: miter;
+        stroke-miterlimit: 4;
+        fill-rule: nonzero;
+        opacity: 1;
+      "
       vector-effect="non-scaling-stroke"
       transform=" translate(-2400.00061, -2400)"
-      d="M 2900.0012 0
+      d="
+        M 2900.0012 0
         L 3200.0012 0
         L 3200.0012 0.00628
         L 3449.60707 166.40979000000002
@@ -97,76 +117,9 @@ import {ThemeButton} from "./theme-button/ThemeButton"
         L 1279.33848 3421.82101
         L 360.5548499999999 4799.9999800000005
         L -1.1368683772161603e-13 4799.9999800000005
-        z"
-      stroke-linecap="round" />
-
-    </g>
-  </svg>
-  <a href="/"><div>My Stuff</div></a>
-  <a href="/about"><div>About Me</div></a>
-  <ThemeButton client:only="solid-js" />
-</header>
-
-
-
-<style>
-  header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-
-
-  /* Logo */
-  svg {
-    width: 80px;
-    height: 80px;
-  }
-
-  path {
-    stroke: #000000;
-    stroke-width: 0;
-    stroke-dasharray: none;
-    stroke-linecap: butt;
-    stroke-dashoffset: 0;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    fill-rule: nonzero;
-    opacity: 1;
-
-    fill: var(--onBackground);
-  }
-
-
-
-  /* Nav links */
-  a {
-    margin: 0.5rem;
-    order: 2;
-  }
-
-
-
-  @media only screen and (max-width: 430px) {
-    header {
-      gap: unset;
-    }
-
-    a {
-      width: 100%;
-      text-align: center;
-
-      border-top: 1px solid var(--onBackground);
-      margin: unset;
-      padding: 0.5rem;
-    }
-    a:first-of-type {
-      margin-top: 0.3rem;
-    }
-    a:last-of-type {
-      border-bottom: 1px solid var(--onBackground);
-    }
-  }
-</style>
+        z
+      "
+      stroke-linecap="round"
+    />
+  </g>
+</svg>
