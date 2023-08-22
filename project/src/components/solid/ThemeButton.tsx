@@ -12,7 +12,7 @@ export default function ThemeButton() {
       class="
         button-icon
 
-        margin-left:20px
+        margin-left:10px
         transition:none
       "
       onClick={() => {

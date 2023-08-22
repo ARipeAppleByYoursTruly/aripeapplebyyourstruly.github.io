@@ -372,7 +372,7 @@ let blueprints = classNames.map((className) => {
 
           border:none
           border-radius:50%
-          padding:5px
+          padding:10px
           cursor:pointer
 
           apply-transition
