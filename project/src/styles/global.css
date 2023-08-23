@@ -54,7 +54,7 @@
   --container: color-mix(in srgb, var(--background), var(--base) 30%);
 
   --backgroundOnHover: color-mix(in srgb, var(--background), white 10%);
-  --backgroundOnClick: color-mix(in srgb, var(--background), black 20%);
+  --backgroundOnClick: color-mix(in srgb, var(--background), black 90%);
 
   --accentOnHover: color-mix(in srgb, var(--accent), white);
   --accentOnClick: color-mix(in srgb, var(--accent), black 30%);

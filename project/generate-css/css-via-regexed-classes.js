@@ -218,7 +218,7 @@ let blueprints = classNames.map((className) => {
 
     blueprint.styles = blueprint.styles.flatMap(({ rule, layer }) => {
       // Ignore variants
-      let variants = rule.match(/^(.+)\?/)
+      let variants = rule.match(/^([^?]*)\?/)
 
       if (variants !== null) {
         rule = rule.replace(variants[0], "")
@@ -293,9 +293,14 @@ let blueprints = classNames.map((className) => {
       if (shortcutMatch !== null) {
         // usesShortcuts = true
 
-        let rulesAndShortcuts = `
-          :hover?${shortcutMatch[1]}:${shortcutMatch[2]}
-        `
+        let rulesAndShortcuts
+
+        if (shortcutMatch[1].indexOf("?") >= 0) {
+          rulesAndShortcuts = `:hover${shortcutMatch[1]}`
+        }
+        else {
+          rulesAndShortcuts = `:hover?${shortcutMatch[1]}`
+        }
 
         return convertToArray(rulesAndShortcuts).map((ruleOrShortcut) => {
           checkForRecursion(ruleOrShortcut, shortcutMatch)
@@ -381,9 +386,9 @@ let blueprints = classNames.map((className) => {
 
 
 
-          >div?display:block
-          >div?width:50px
-          >div?height:50px
+          _div:first-child?display:block
+          _div:first-child?width:50px
+          _div:first-child?height:50px
         `
 
         return convertToArray(rulesAndShortcuts).map((ruleOrShortcut) => {
@@ -521,32 +526,32 @@ blueprints.forEach((blueprint) => {
     while (true) {
       // Descendent combinator
       if (variants.startsWith("_")) {
-        variantRegex = /^_([^_>~+:]+)/
+        variantRegex = /^_([^_>~+:]*)/
         variantTransformation = " "
       }
       // Child combinator
       else if (variants.startsWith(">")) {
-        variantRegex = /^>([^_>~+:]+)/
+        variantRegex = /^>([^_>~+:]*)/
         variantTransformation = " > "
       }
       // General sibling combinator
       else if (variants.startsWith("~")) {
-        variantRegex = /^~([^_>~+:]+)/
+        variantRegex = /^~([^_>~+:]*)/
         variantTransformation = " ~ "
       }
       // Adjacent sibling combinator
       else if (variants.startsWith("+")) {
-        variantRegex = /^\+([^_>~+:]+)/
+        variantRegex = /^\+([^_>~+:]*)/
         variantTransformation = " + "
       }
       // Pseudo-element selector
       else if (variants.startsWith("::")) {
-        variantRegex = /^::([^_>~+:]+)/
+        variantRegex = /^::([^_>~+:]*)/
         variantTransformation = "::"
       }
       // Pseudo-class selector
       else if (variants.startsWith(":")) {
-        variantRegex = /^:([^_>~+:]+)/
+        variantRegex = /^:([^_>~+:]*)/
         variantTransformation = ":"
       }
       else {
