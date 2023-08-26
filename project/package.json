@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "@astrojs/solid-js": "^2.2.1",
-    "astro": "^2.10.12",
+    "astro": "^2.10.14",
     "modern-normalize": "^2.0.0",
     "solid-js": "^1.7.11"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.105",
+    "@iconify/json": "^2.2.106",
     "@iconify/utils": "^2.1.9",
     "cssesc": "^3.0.0",
     "vite-plugin-command": "^0.0.3"
