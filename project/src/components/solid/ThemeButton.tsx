@@ -1,14 +1,38 @@
 import {createSignal} from "solid-js"
-
-
-
-const [isDarkTheme, set_isDarkTheme] = createSignal(checkTheme())
+import IconButton from "./IconButton"
 
 
 
 export default function ThemeButton() {
+  const [isDarkTheme, set_isDarkTheme] = createSignal((() => {
+    if (localStorage !== undefined && localStorage.getItem("theme")) {
+      return (localStorage.getItem("theme")! === "dark")
+    }
+    else {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+    }
+  })())
+
+  /*
+  <class="
+    icon_material-symbols_dark-mode-outline-rounded
+    icon_material-symbols_light-mode-outline
+  ">
+  */
+
+
+
   return (
-    <button
+    <IconButton
+      tooltipText={isDarkTheme() ?
+        "Switch to light mode" :
+        "Switch to dark mode"
+      }
+      tooltipPosition="left"
+      iconClassName={isDarkTheme() ?
+        "icon_material-symbols_dark-mode-outline-rounded" :
+        "icon_material-symbols_light-mode-outline"
+      }
       class="
         button-icon
 
@@ -27,24 +51,6 @@ export default function ThemeButton() {
 
         window.localStorage.setItem("theme", isDarkTheme() ? "dark" : "light")
       }}
-    >
-      <div
-        class={isDarkTheme() ?
-          "icon_material-symbols_dark-mode-outline-rounded" :
-          "icon_material-symbols_light-mode-outline"
-        }
-      ></div>
-    </button>
+    />
   )
-}
-
-
-
-function checkTheme(): boolean {
-  if (localStorage !== undefined && localStorage.getItem("theme")) {
-    return (localStorage.getItem("theme")! === "dark")
-  }
-  else {
-    return window.matchMedia("(prefers-color-theme: dark)").matches
-  }
 }

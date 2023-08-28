@@ -6,7 +6,7 @@ import "../../styles/global.css"
 import Header from "../../components/astro/Header.astro"
 import Footer from "../../components/astro/Footer.astro"
 
-const { pageTitle } = Astro.props
+const {pageTitle} = Astro.props
 const pageTitleAfter = "Aapple's Website"
 ---
 
@@ -14,32 +14,32 @@ const pageTitleAfter = "Aapple's Website"
 
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="generator" content={ Astro.generator } />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <meta name="generator" content={Astro.generator}/>
 
-  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg"/>
 
-  <title>{ pageTitle } &ndash; { pageTitleAfter }</title>
+  <title>{pageTitle} &ndash; {pageTitleAfter}</title>
 
   <script>
     // Apply dark theme
     if (
       (localStorage !== undefined && localStorage.getItem("theme") === "dark") ||
-      window.matchMedia("(prefers-color-theme: dark)").matches
+      window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
       document.querySelector("body").classList.add("dark")
     }
   </script>
 </head>
 <body>
-  <Header />
+  <Header/>
 
   <main>
-    <h1 class="text-align:center">{ pageTitle }</h1>
-    <slot />
+    <h1 class="text-align:center">{pageTitle}</h1>
+    <slot/>
   </main>
 
-  <Footer />
+  <Footer/>
 </body>
 </html>

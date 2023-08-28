@@ -381,14 +381,16 @@ let blueprints = classNames.map((className) => {
           cursor:pointer
 
           apply-transition
-          transition-property:color,background-color,transform
-          transform-style:preserve-3d
+          transition-property:color,background-color
 
 
 
           _div:first-child?display:block
           _div:first-child?width:50px
           _div:first-child?height:50px
+
+          _div:nth-child(2)?background:var(--container)
+          _div:nth-child(2)?color:var(--onBackground)
         `
 
         return convertToArray(rulesAndShortcuts).map((ruleOrShortcut) => {
@@ -791,40 +793,6 @@ for (const layer in scaffolds) {
     }
   })
 }
-
-
-
-// for (const layer in scaffolds) {
-//   scaffolds[layer].forEach((style, i) => {
-//     // Place :hover before :active
-//     if (
-//       style.selector.endsWith(":active") &&
-//       style.selector[-8] !== "\\" &&
-//       scaffolds[layer].length > i + 1 &&
-//       scaffolds[layer][i + 1].selector.endsWith(":hover") &&
-//       scaffolds[layer][i + 1].selector[-7] !== "\\"
-//     ) {
-//       let temp = scaffolds[layer][i]
-
-//       scaffolds[layer][i] = scaffolds[layer][i + 1]
-//       scaffolds[layer][i + 1] = temp
-//     }
-//   })
-
-//   // scaffolds[layer].sort((a, b) => {
-//   //   if (
-//   //     a.selector.endsWith(":active") &&
-//   //     a.selector[-8] !== "\\" &&
-//   //     b.selector.endsWith(":hover") &&
-//   //     b.selector.selector[-7] !== "\\"
-//   //   ) {
-//   //     return -1
-//   //   }
-//   //   else {
-//   //     return 0
-//   //   }
-//   // })
-// }
 
 
 

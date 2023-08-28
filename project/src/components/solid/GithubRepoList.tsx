@@ -54,8 +54,6 @@ export default function GithubRepoList(props: {
 
 
 
-
-
 type RepoInfo = {
   formalName: string,
   pagesUrl: string

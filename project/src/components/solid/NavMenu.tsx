@@ -1,36 +1,53 @@
-let button: HTMLButtonElement
-let div: HTMLDivElement
-
-/*
-<class="
-  height:136px
-  transform:rotate(180deg)
-">
-*/
+import {createSignal} from "solid-js"
+import IconButton from "./IconButton"
 
 
 
 export default function NavMenu() {
+  let [isOpened, set_isOpened] = createSignal(false)
+
+  let button: HTMLButtonElement
+  let div: HTMLDivElement
+
+  /*
+  <class="
+    icon_material-symbols_expand-more-rounded
+    height:136px
+    transform:rotate(180deg)
+  ">
+  */
+
+
+
   return (
     <>
       {/* Mobile */}
-      <button
-        ref={ button }
+      <IconButton
+        ref={button!}
+        tooltipText={isOpened() ?
+          "Close navigation menu" :
+          "Open navigation menu"
+        }
+        tooltipPosition="bottom"
+        iconClassName="icon_material-symbols_expand-more-rounded"
         class="
           button-icon
-
           @non-mobile@display:none
+
+          _div:first-child?apply-transition
+          _div:first-child?transition-property:transform
+          _div:first-child?transform-style:preserve-3d
         "
         onClick={() => {
+          set_isOpened(!isOpened())
+
           // console.log(div.scrollHeight)
           div.classList.toggle("height:136px")
-          button.classList.toggle("transform:rotate(180deg)")
+          button.querySelector("div:first-child")?.classList.toggle("transform:rotate(180deg)")
         }}
-      >
-        <div class="icon_material-symbols_expand-more-rounded"></div>
-      </button>
+      />
       <div
-        ref={ div }
+        ref={div!}
         class="
           width:100%
           height:0
