@@ -19,7 +19,9 @@ const files = fg.sync([
 
 
 
-let classNames = []
+// Part 1 - Extract class values
+// ===
+let classValues = []
 
 files.forEach((file) => {
   const fileContent = fs.readFileSync(file, "utf-8")
@@ -34,151 +36,185 @@ files.forEach((file) => {
   htmlTags.forEach((htmlTag) => {
     const normalizedHtmlTag = htmlTag.replaceAll(/\s+/g, " ")
 
-    let classAttribute
 
 
+    let classMatch = normalizedHtmlTag.match(/class\s*=\s*((?:'|"|{).+)/)
 
-    // Template
-    /*
-    classAttribute = normalizedHtmlTag.match(/your regex here/)
+    if (classMatch !== null) {
+      classMatch = classMatch[1]
 
-    if (classAttribute !== null) {
-      // your logic here
+      if (classMatch.startsWith("{")) {
+        let classValue = ""
+        let depth = 0
 
-      // Must include classNames.push()
-      // Spread the array when pushing, classNames.push(...array)
+        for (let i = 0; i < classMatch.length; i++) {
+          let char = classMatch[i]
 
-      return
-    }
-    */
+          classValue += char
 
-
-
-    classAttribute = normalizedHtmlTag.match(/class=('[^']+'|"[^"]+"|{[^}]+})/)
-
-    if (classAttribute !== null) {
-      let classValue = classAttribute[1]
-
-      while (true) {
-        // {...}
-        if (classValue.startsWith("{")) {
-          classValue = classValue.substring(1, classValue.length - 1).trim()
-
-
-
-          // Check for `...`
-          let toBeCheckedAgain = classValue.match(/`[^`]+`/g)
-
-          if (toBeCheckedAgain !== null) {
-            toBeCheckedAgain.forEach((result, i) => {
-              classValue = classValue.replace(result, "")
-
-              toBeCheckedAgain[i] = result.substring(1, result.length - 1).trim()
-            })
+          if (char === "{") {
+            depth++
+            continue
           }
+          else if (char === "}") {
+            depth--
 
-
-
-          // Extract '...' and "..."
-          // But not the ones used in comparison
-          // { asd === "won't-be-matched" ? "will-be-matched" : "will-be-matched" }
-          let toBeAdded = classValue.match(/'(?!\s\?\s)[^']+'(?!\s\?)|"(?!\s\?\s)[^"]+"(?!\s\?)/g)
-
-          if (toBeAdded !== null) {
-            toBeAdded.forEach(result => {
-              classNames.push(...result.substring(1, result.length - 1).trim().split(" "))
-            })
-          }
-
-
-
-          // Continue the loop if there's any `...`
-          if (toBeCheckedAgain !== null) {
-            classValue = "`"
-
-            toBeCheckedAgain.forEach(result => {
-              classValue += `${result} `
-            })
-
-            classValue = `${classValue.trim()}\``
+            if (depth === 0) {
+              break
+            }
           }
         }
 
-
-
-        // `...`
-        else if (classValue.startsWith("`")) {
-          classValue = classValue.substring(1, classValue.length - 1).trim()
+        classValues.push(classValue)
+      }
 
 
 
-          // Check for ${...}
-          let toBeCheckedAgain = classValue.match(/\${[^$]+}/g)
+      else if (classMatch.startsWith("'") || classMatch.startsWith("\"")) {
+        let classValue = ""
+        let startChar = classMatch[0]
 
-          if (toBeCheckedAgain !== null) {
-            toBeCheckedAgain.forEach((result, i) => {
-              classValue = classValue.replace(result, "")
+        for (let i = 0; i < classMatch.length; i++) {
+          let char = classMatch[i]
 
-              toBeCheckedAgain[i] = result.substring(2, result.length - 1).trim()
-            })
-          }
+          classValue += char
 
-
-
-          // Extract
-          let toBeAdded = classValue.trim().split(" ")
-
-          if (toBeAdded !== null) {
-            classNames.push(...toBeAdded)
-          }
-
-
-
-          // Continue the loop if there's any ${...}
-          if (toBeCheckedAgain !== null) {
-            classValue = "{"
-
-            toBeCheckedAgain.forEach(result => {
-              classValue += `${result} `
-            })
-
-            classValue = `${classValue.trim()}}`
+          if (char === startChar && i !== 0) {
+            break
           }
         }
 
-
-
-        // '...' or "..."
-        else if (classValue.startsWith("'") || classValue.startsWith("\"")) {
-          classValue = classValue.substring(1, classValue.length - 1).trim()
-
-
-          // Extract
-          let toBeAdded = classValue.trim().split(" ")
-
-          if (toBeAdded !== null) {
-            classNames.push(...toBeAdded)
-          }
-        }
-
-
-
-        else {
-          // console.log("=============================")
-          // console.log("Infinite Loop Exit Checkpoint")
-          // console.log("=============================")
-          // console.log("htmlTag")
-          // console.log(htmlTag)
-          // console.log()
-          // console.log("classNames")
-          // console.log(classNames)
-          // console.log("=============================\n")
-
-          return
-        }
+        classValues.push(classValue)
       }
     }
   })
+})
+
+
+
+// Part 2 - Extract class names
+// ===
+let classNames = []
+
+classValues.forEach((classValue) => {
+  while (true) {
+    // {...}
+    if (classValue.startsWith("{")) {
+      classValue = classValue.substring(1, classValue.length - 1).trim()
+
+
+
+      // Check for `...`
+      let toBeCheckedAgain = classValue.match(/`[^`]+`/g)
+
+      if (toBeCheckedAgain !== null) {
+        toBeCheckedAgain.forEach((result, i) => {
+          classValue = classValue.replace(result, "")
+
+          toBeCheckedAgain[i] = result.substring(1, result.length - 1).trim()
+        })
+      }
+
+
+
+      // Extract '...' and "..."
+      // But not the ones used in comparison
+      // { asd === "won't-be-matched" ? "will-be-matched" : "will-be-matched" }
+      let toBeAdded = classValue.match(/'(?!\s\?\s)[^']+'(?!\s\?)|"(?!\s\?\s)[^"]+"(?!\s\?)/g)
+
+      if (toBeAdded !== null) {
+        toBeAdded.forEach(result => {
+          classNames.push(...result.substring(1, result.length - 1).trim().split(" "))
+        })
+      }
+
+
+
+      // Continue the loop if there's any `...`
+      if (toBeCheckedAgain !== null) {
+        classValue = "`"
+
+        toBeCheckedAgain.forEach(result => {
+          classValue += `${result} `
+        })
+
+        classValue = `${classValue.trim()}\``
+      }
+    }
+
+
+
+    // `...`
+    else if (classValue.startsWith("`")) {
+      classValue = classValue.substring(1, classValue.length - 1).trim()
+
+
+
+      // Check for ${...}
+      let toBeCheckedAgain = classValue.match(/\${[^$]+}/g)
+
+      if (toBeCheckedAgain !== null) {
+        toBeCheckedAgain.forEach((result, i) => {
+          classValue = classValue.replace(result, "")
+
+          toBeCheckedAgain[i] = result.substring(2, result.length - 1).trim()
+        })
+      }
+
+
+
+      // Extract
+      let toBeAdded = classValue.trim().split(" ")
+
+      if (toBeAdded !== null) {
+        classNames.push(...toBeAdded)
+      }
+
+
+
+      // Continue the loop if there's any ${...}
+      if (toBeCheckedAgain !== null) {
+        classValue = "{"
+
+        toBeCheckedAgain.forEach(result => {
+          classValue += `${result} `
+        })
+
+        classValue = `${classValue.trim()}}`
+      }
+    }
+
+
+
+    // '...' or "..."
+    else if (classValue.startsWith("'") || classValue.startsWith("\"")) {
+      classValue = classValue.substring(1, classValue.length - 1).trim()
+
+
+      // Extract
+      let toBeAdded = classValue.trim().split(" ")
+
+      if (toBeAdded !== null) {
+        classNames.push(...toBeAdded)
+      }
+    }
+
+
+
+    else {
+      // console.log("=============================")
+      // console.log("Infinite Loop Exit Checkpoint")
+      // console.log("=============================")
+      // console.log("htmlTag")
+      // console.log(htmlTag)
+      // console.log()
+      // console.log("classNames")
+      // console.log(classNames)
+      // console.log("=============================\n")
+
+      return
+    }
+  }
 })
 
 
@@ -288,7 +324,7 @@ let blueprints = classNames.map((className) => {
 
 
 
-      shortcutMatch = rule.match(/^real-hover!(.+):(.+)$/)
+      shortcutMatch = rule.match(/^real-hover!(.+)$/)
 
       if (shortcutMatch !== null) {
         // usesShortcuts = true
