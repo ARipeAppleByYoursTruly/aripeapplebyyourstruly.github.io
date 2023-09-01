@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "generate-css": "node ./generate-css/css-via-regexed-classes.js",
+    "generate-css": "node generate-css/css-via-regexed-classes.js",
     "predev": "npm run generate-css",
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,13 +11,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^2.2.1",
-    "astro": "^2.10.15",
+    "@astrojs/solid-js": "^3.0.0",
+    "astro": "^3.0.5",
     "modern-normalize": "^2.0.0",
     "solid-js": "^1.7.11"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.108",
+    "@iconify/json": "^2.2.109",
     "@iconify/utils": "^2.1.9",
     "cssesc": "^3.0.0",
     "vite-plugin-command": "^0.0.3"

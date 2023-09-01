@@ -4,7 +4,10 @@ import BaseLayout from "../layouts/astro/BaseLayout.astro"
 
 
 
-<BaseLayout pageTitle="About Me">
+<BaseLayout
+  pageTitle="About Me"
+  githubRepo="aripeapplebyyourstruly.github.io"
+>
   <div
     class="
       background:var(--container)
@@ -16,6 +19,8 @@ import BaseLayout from "../layouts/astro/BaseLayout.astro"
     "
   >
     <img
+      loading="lazy"
+      decoding="async"
       src="/images/profile pic.webp"
       alt="Profile picture for Github user ARipeAppleByYoursTruly"
       class="

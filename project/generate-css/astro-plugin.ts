@@ -1,4 +1,4 @@
-import type { AstroIntegration } from "astro"
+import type {AstroIntegration} from "astro"
 import child_process from "node:child_process"
 
 

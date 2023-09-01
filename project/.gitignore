@@ -19,3 +19,8 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+
+
+# Output of css-via-regexed-classes.js
+src/styles/generated-via-regexed-classes.css

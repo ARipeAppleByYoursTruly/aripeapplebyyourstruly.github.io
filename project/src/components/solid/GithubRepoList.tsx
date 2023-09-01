@@ -120,6 +120,8 @@ function GithubRepoListItem(props: {
       "
     >
       <img
+        loading="lazy"
+        decoding="async"
         src={thumbnail()}
         alt={`Thumbnail image for GitHub repo ${props.githubUsername}/${props.repo.name}`}
         class="
