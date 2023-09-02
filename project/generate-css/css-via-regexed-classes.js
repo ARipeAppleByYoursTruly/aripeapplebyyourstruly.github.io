@@ -356,8 +356,8 @@ let blueprints = classNames.map((className) => {
         // usesShortcuts = true
 
         let rulesAndShortcuts = `
-          transition-timing-function:cubic-bezier(.36,.75,0,1)
-          transition-duration:.3s
+          transition-timing-function:cubic-bezier(.7,1,.7,1)
+          transition-duration:.2s
         `
 
         return convertToArray(rulesAndShortcuts).map((ruleOrShortcut) => {
