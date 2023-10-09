@@ -11,14 +11,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^3.0.0",
-    "astro": "^3.0.8",
+    "@astrojs/solid-js": "^3.0.2",
+    "astro": "^3.2.3",
     "modern-normalize": "^2.0.0",
-    "solid-js": "^1.7.11"
+    "solid-js": "^1.7.12"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.111",
-    "@iconify/utils": "^2.1.9",
+    "@iconify/json": "^2.2.125",
+    "@iconify/utils": "^2.1.11",
     "cssesc": "^3.0.0",
     "vite-plugin-command": "^0.0.3"
   }
