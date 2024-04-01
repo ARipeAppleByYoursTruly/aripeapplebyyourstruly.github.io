@@ -79,7 +79,7 @@ jobs:
 
 
   deploy:
-    needs: astro-build
+    needs: pre-deploy
     runs-on: ubuntu-latest
 
     environment:
