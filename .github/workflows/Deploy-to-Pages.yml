@@ -1,5 +1,5 @@
-name: Test generating repoData
-run-name: Test generating repoData
+name: Deploy to GitHub Pages
+run-name: Deploy to GitHub Pages
 
 
 
@@ -45,6 +45,8 @@ jobs:
     steps:
       - name: Building website
         uses: withastro/action@v2.0.0
+        with:
+          package-manager: npm
 
 
 
