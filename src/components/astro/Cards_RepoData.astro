@@ -1,0 +1,111 @@
+---
+// @ts-ignore
+import fs from "node:fs"
+
+
+
+type RepoData_Single = {
+  name: string,
+  description: string,
+  pushed_at: string,
+  url_html: string,
+  url_thumbnail: string
+}
+
+export const repoData = JSON.parse(fs.readFileSync("repoData/output.json", "utf-8")) as {
+  hundredPercentGuides: RepoData_Single[],
+  otherStuff: RepoData_Single[]
+}
+
+
+
+let {repoArray, showMostRecent} = Astro.props as {
+  repoArray: "hundredPercentGuides" | "otherStuff" | RepoData_Single[]
+  showMostRecent?: number
+}
+---
+
+
+
+<div
+  class="
+    display:grid
+    grid-template-columns:repeat(auto-fit,minmax(300px,400px))
+    grid-gap:20px
+    justify-content:center
+  "
+>
+  {(() => {
+    // String means all the entire specified array
+    if (typeof repoArray === "string") {
+      repoArray = repoData[repoArray]
+    }
+
+    return repoArray.map((repo, i) => {
+      if (
+        showMostRecent !== undefined &&
+        i >= showMostRecent
+      ) {
+        return
+      }
+
+      return (
+        <a
+          href={repo.url_html}
+          class="
+            styleAs-button-card
+          "
+        >
+          {/* Thumbnail */}
+          {(() => {
+            if (repo.url_thumbnail !== "") {
+              return (
+                <img
+                  src={repo.url_thumbnail}
+                  alt={`Thumbnail for repo "${repo.name}"`}
+                  loading="lazy"
+                  decoding="async"
+                  class="
+                    display:block
+
+                    width:100%
+                    height:200px
+                    object-fit:contain
+
+                    margin:auto
+                  "
+                />
+              )
+            }
+            else {
+              return (
+                <div
+                  class="
+                    icon-base
+                    icon_material-symbols_hide-image-outline-rounded
+
+                    display:block
+
+                    height:200px
+                    aspect-ratio:1/1
+                    margin:auto
+                  "
+                ></div>
+              )
+            }
+          })()}
+
+          <div
+            class="
+              font-size:20pt
+              font-weight:bold
+              text-align:center
+              margin:20px_0_15px
+            "
+          >{repo.name}</div>
+          <div>{repo.description}</div>
+        </a>
+      )
+    })
+  })()}
+</div>

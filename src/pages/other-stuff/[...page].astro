@@ -1,0 +1,24 @@
+---
+import {type GetStaticPathsOptions} from "astro"
+
+import LayoutBase from "@layouts/astro/Layout_Base.astro"
+import Cards_RepoData, {repoData} from "@components/astro/Cards_RepoData.astro"
+
+
+
+export async function getStaticPaths({paginate}: GetStaticPathsOptions) {
+  return paginate(repoData.otherStuff)
+}
+
+
+
+const {page} = Astro.props
+const pageTitle_after = page.currentPage > 1 ? ` - Page ${page.currentPage}` : ""
+---
+
+
+
+<LayoutBase pageTitle=`Other Stuff${pageTitle_after}`>
+  <h1 class="text-align:center">Other Stuff</h1>
+  <Cards_RepoData repoArray={page.data}/>
+</LayoutBase>

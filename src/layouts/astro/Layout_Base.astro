@@ -1,0 +1,52 @@
+---
+import "@csstools/normalize.css"
+import "@styles/generated-by-USaC.css"
+import "@styles/global.css"
+
+import Header from "@components/solid/Header.tsx"
+import Footer from "@components/astro/Footer.astro"
+
+
+
+const {pageTitle, githubRepo} = Astro.props as {
+  pageTitle: string,
+  githubRepo: string
+}
+---
+
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <meta name="generator" content={Astro.generator}/>
+
+  <link rel="icon" type="image/png" href="/images/RipeApple/Logo.webp"/>
+
+  <title>{pageTitle} | RipeApple's Website</title>
+
+  <script>
+    // Apply light theme
+    let theme_localStorage = localStorage.getItem("theme")
+
+    if (theme_localStorage !== null) {
+      if (theme_localStorage === "light") {
+        document.querySelector("body")!.classList.add("light-theme")
+      }
+    }
+    else if (window.matchMedia("(prefers-color-scheme: dark)").matches === false) {
+      document.querySelector("body")!.classList.add("light-theme")
+    }
+  </script>
+</head>
+<body>
+  <Header client:load/>
+
+  <main>
+    <slot/>
+  </main>
+
+  <Footer githubRepo={githubRepo}/>
+</body>
+</html>

@@ -1,0 +1,65 @@
+---
+import {marked} from "marked"
+
+import Layout_Base from "@layouts/astro/Layout_Base.astro"
+---
+
+
+
+<Layout_Base pageTitle="About Me">
+  <h1 class="text-align:center">About Me</h1>
+
+  <div
+    class="
+      styleAs-card
+      margin:0_max(0px,50%_-_1000px_/_2)
+    "
+  >
+    <img
+      src="/images/RipeApple/Profile picture.webp"
+      alt="RipeApple's profile picture"
+      decoding="async"
+      class="
+        border-radius:50%
+        width:200px
+        aspect-ratio:1/1
+        display:block
+        margin:auto
+      "
+    />
+    <div
+      class="
+        >p:first-child?apply-markdown-logicalBreak
+        >ul?apply-markdown-logicalBreak
+      "
+      set:html={marked.parse(`
+You wanna know more about me, instead of the stuff I've made? Alright then.
+
+
+
+I go by multiple usernames, so apologies if you ever get confused by that. For clarity, here's how I
+use them:
+
+- **A Ripe Apple By Yours Truly** - The full, official username. Used in places where being able to
+be uniquely identified is important, like social media. Sometimes without spaces due to website
+constraints.
+
+- **RipeApple** - Shorter, informal username. Used for gaming and text.
+
+- **Apple** - The shortest non-username possible. I prefer to go by this name in verbal
+conversations, since it's an actual name. Be careful of context if using for text though.
+
+
+
+I'm mainly a gamer who do some programming, how it came to be is a bit of a life story. Long story
+short, I've been playing games for the majority of my life, wanted to make games, but realized its
+difficulty for solo game devs, so I stopped my academics with a diploma in computer science.
+
+Now I'm trying to find a way to make a living with the skills I have. Proven to be difficult
+due to life, and myself to be honest. Just gonna have to put some blind faith in myself, and try
+some stuff to see how it goes.
+      `)}
+    ></div>
+    </div>
+  </div>
+</Layout_Base>

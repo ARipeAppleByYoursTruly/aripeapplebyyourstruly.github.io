@@ -1,0 +1,82 @@
+---
+import Layout_Base from "@layouts/astro/Layout_Base.astro"
+import Cards_RepoData from "@components/astro/Cards_RepoData.astro"
+---
+
+
+
+<Layout_Base pageTitle="Welcome">
+  <!-- Welcome mat -->
+  <div
+    class="
+      margin-bottom:100px
+
+      font-size:30pt
+      text-align:center
+    "
+  >
+    <h1
+      class="
+        background:linear-gradient(140deg,#00dcff_0%,#0057ff_100%)
+        background-clip:text
+        color:transparent
+
+        width:min-content
+        margin-left:auto
+        margin-right:auto
+      "
+    >Welcome</h1>
+    <p class="font-weight:bold">This is where I share some of the stuff I've made</p>
+    <p
+      class="
+        font-size:0.6em
+        >a?styleAs-link
+      "
+    >
+      Built with
+      <a href="https://astro.build/">Astro</a>,
+      <a href="https://www.solidjs.com/">SolidJS</a>,
+      <!-- <a href="">USaC</a>, -->
+      USaC, blood, sweat and tears</p>
+  </div>
+
+  <!-- Recent stuff -->
+  <div class="margin:0_max(0px,50%_-_1300px_/_2)_50px">
+    <h2>Recent 100% Guides</h2>
+    <div
+      class="
+        background:var(--color-background-layer1)
+        border-radius:10px
+
+        display:flex
+        align-items:center
+        justify-content:center
+
+        height:150px
+      "
+    >None for now</div>
+    <a
+      href="./100-percent-guides"
+      class="
+        styleAs-button-card
+        display:block
+        width:max-content
+        margin:20px_auto_0
+      "
+    >View more</a>
+  </div>
+
+  <div class="margin:0_max(0px,50%_-_1300px_/_2)">
+    <h2>Other Stuff I Recently Did</h2>
+    <Cards_RepoData repoArray="otherStuff" showMostRecent={3}/>
+    <a
+      href="./other-stuff"
+      class="
+        styleAs-button-card
+        display:block
+        width:max-content
+        margin:20px_auto_0
+      "
+    >View more</a>
+  </div>
+</Layout_Base>

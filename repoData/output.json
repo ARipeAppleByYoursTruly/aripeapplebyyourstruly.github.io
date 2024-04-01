@@ -1,0 +1,26 @@
+{
+  "hundredPercentGuides": [],
+  "otherStuff": [
+    {
+      "name": "edge-pdf",
+      "description": "An .exe file to open .pdf files in Microsoft Edge's app mode",
+      "pushed_at": "2024-03-18T08:20:17Z",
+      "url_html": "https://github.com/ARipeAppleByYoursTruly/edge-pdf",
+      "url_thumbnail": "https://raw.githubusercontent.com/ARipeAppleByYoursTruly/edge-pdf/for-personal-website/thumbnail.webp"
+    },
+    {
+      "name": "persona5-crowd-wallpaper",
+      "description": "A Persona 5 themed wallpaper using the crowd sprites shown in the game's transition screens",
+      "pushed_at": "2024-03-12T11:32:55Z",
+      "url_html": "https://github.com/ARipeAppleByYoursTruly/persona5-crowd-wallpaper",
+      "url_thumbnail": "https://raw.githubusercontent.com/ARipeAppleByYoursTruly/persona5-crowd-wallpaper/for-personal-website/thumbnail.webp"
+    },
+    {
+      "name": "pinyin-tonal-marking",
+      "description": "A VS Code extension for converting the commonly used tonal marking format to their Unicode counterparts",
+      "pushed_at": "2023-12-20T07:47:31Z",
+      "url_html": "https://github.com/ARipeAppleByYoursTruly/pinyin-tonal-marking",
+      "url_thumbnail": ""
+    }
+  ]
+}

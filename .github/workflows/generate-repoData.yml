@@ -1,0 +1,62 @@
+name: Test generating repoData
+run-name: Test generating repoData
+
+
+
+on:
+  push:
+    branches: main
+
+  workflow_dispatch:
+
+
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+
+
+jobs:
+  generate-repoData:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out the rpeo
+        uses: actions/checkout@v4.1.1
+
+      - name: Generating `repoData`
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            const {default: main} = await import(
+              `${{github.workspace}}/.github/workflows/generate-repoData.js`
+            )
+
+            await main({github, context})
+
+
+
+  astro-build:
+    needs: generate-repoData
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Building website
+        uses: withastro/action@v2.0.0
+
+
+
+  deployToGitHubPages:
+    needs: astro-build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+
+    steps:
+      - name: Deploying to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5

@@ -1,0 +1,25 @@
+---
+let {githubRepo} = Astro.props as {
+  githubRepo: string
+}
+
+if (githubRepo === undefined) {
+  githubRepo = "aripeapplebyyourstruly.github.io"
+}
+---
+
+
+
+<footer
+  class="
+    border-top:1px_solid_var(--color-onBackground-base)
+    margin-top:50px
+    padding:20px_0
+    text-align:center
+  "
+>
+  <a
+    href={`https://github.com/ARipeAppleByYoursTruly/${githubRepo}`}
+    class="styleAs-link"
+  >GitHub repo for this webpage</a>
+</footer>

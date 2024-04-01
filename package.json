@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "usac": "node USaC/generator.js logStages"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/solid-js": "^4.0.1",
+    "@csstools/normalize.css": "^12.1.1",
+    "@iconify/json": "^2.2.196",
+    "@iconify/utils": "^2.1.22",
+    "astro": "^4.5.12",
+    "cssesc": "^3.0.0",
+    "marked": "^12.0.1",
+    "solid-js": "^1.8.16",
+    "typescript": "^5.4.3"
+  }
+}
