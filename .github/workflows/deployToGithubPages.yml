@@ -41,43 +41,6 @@ jobs:
 
 
 
-  # astro-build:
-  #   needs: generate-repoData
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Building website
-  #       uses: withastro/action@v2.0.0
-
-  # astro-build:
-  #   needs: generate-repoData
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v4.0.2
-  #       with:
-  #         node-version: 20
-  #         cache: npm
-  #         cache-dependency-path: "./package-lock.json"
-
-  #     - name: Install dependencies
-  #       shell: "bash"
-  #       working-directory: .
-  #       run: npm ci
-
-  #     - name: Build Astro project
-  #       shell: "bash"
-  #       working-directory: .
-  #       run: npm run build
-
-  #     - name: Upload Pages Artifact
-  #       uses: actions/upload-pages-artifact@v3.0.1
-  #       with:
-  #         path: "./dist/"
-
-
-
   deploy:
     needs: pre-deploy
     runs-on: ubuntu-latest
