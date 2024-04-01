@@ -54,7 +54,6 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4.0.2
         with:
-          node-version: lts
           cache: npm
           cache-dependency-path: "./package-lock.json"
 
