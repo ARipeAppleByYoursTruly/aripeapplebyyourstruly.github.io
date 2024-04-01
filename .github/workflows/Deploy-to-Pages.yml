@@ -45,6 +45,8 @@ jobs:
     steps:
       - name: Building website
         uses: withastro/action@v1.0.6
+        with:
+          package-manager: npm
 
 
 
