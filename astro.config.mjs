@@ -8,5 +8,6 @@ export default defineConfig({
   integrations: [
     solidJs(),
     USaC()
-  ]
+  ],
+  site: "https://aripeapplebyyourstruly.github.io"
 })
