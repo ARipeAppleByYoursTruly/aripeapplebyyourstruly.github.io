@@ -108,8 +108,8 @@ const config = Object.freeze({
     "icons",
     "shortcuts",
     "rules",
-    "rules - mobile specific",
-    "rules - non-mobile specific",
+    "rules - 500px breakpoint - max-width",
+    "rules - 500px breakpoint - min-width",
     "variants - :hover",
     "variants - :focus-visible",
     "variants - :active"
@@ -206,13 +206,6 @@ function config_defineShortcuts() {
     text-decoration:none
     :hover?text-decoration:revert
     :focus-visible?text-decoration:revert
-    `
-  )
-
-  map.set(
-    "apply-markdown-logicalBreak",
-    `
-    margin-bottom:2em
     `
   )
 
@@ -375,9 +368,9 @@ function config_defineRules() {
 
       return [isRuleHandled, blueprint]
     },
-    // Mobile specific
+    // 500px breakpoint - max-width
     (isRuleHandled, blueprint) => {
-      let rule_match = blueprint.rule.match(/^@mobile@(.+):(.+)$/)
+      let rule_match = blueprint.rule.match(/^@max:500px@(.+):(.+)$/)
 
       if (rule_match === null) {
         return [isRuleHandled, blueprint]
@@ -388,7 +381,7 @@ function config_defineRules() {
       blueprint.css.body = `${rule_match[1]}: ${rule_match[2].replaceAll("_", " ")}`
 
       if (blueprint.layer === "") {
-        blueprint.layer = config.layers.get("rules - mobile specific")
+        blueprint.layer = config.layers.get("rules - 500px breakpoint - max-width")
       }
 
 
@@ -397,9 +390,9 @@ function config_defineRules() {
 
       return [isRuleHandled, blueprint]
     },
-    // Non-mobile specific
+    // 500px breakpoint - min-width
     (isRuleHandled, blueprint) => {
-      let rule_match = blueprint.rule.match(/^@non-mobile@(.+):(.+)$/)
+      let rule_match = blueprint.rule.match(/^@min:500px@(.+):(.+)$/)
 
       if (rule_match === null) {
         return [isRuleHandled, blueprint]
@@ -410,7 +403,7 @@ function config_defineRules() {
       blueprint.css.body = `${rule_match[1]}: ${rule_match[2].replaceAll("_", " ")}`
 
       if (blueprint.layer === "") {
-        blueprint.layer = config.layers.get("rules - non-mobile specific")
+        blueprint.layer = config.layers.get("rules - 500px breakpoint - min-width")
       }
 
 
@@ -1129,12 +1122,12 @@ scaffolding.forEach((scaffold_layer, layer) => {
       )
       break
 
-    case config.layers.get("rules - mobile specific"):
+    case config.layers.get("rules - 500px breakpoint - max-width"):
       outputFileStream.write("@media screen and (max-width: 500px) {\n")
       indentLevel++
       break
 
-    case config.layers.get("rules - non-mobile specific"):
+    case config.layers.get("rules - 500px breakpoint - min-width"):
       outputFileStream.write("@media screen and (min-width: 500px) {\n")
       indentLevel++
       break
@@ -1189,8 +1182,8 @@ scaffolding.forEach((scaffold_layer, layer) => {
   // Layer footer
   // Layer specfic footers are defined here
   switch (layer) {
-    case config.layers.get("rules - mobile specific"):
-    case config.layers.get("rules - non-mobile specific"):
+    case config.layers.get("rules - 500px breakpoint - max-width"):
+    case config.layers.get("rules - 500px breakpoint - min-width"):
     case config.layers.get("variants - :hover"):
       indentLevel--
       outputFileStream.write("}\n")

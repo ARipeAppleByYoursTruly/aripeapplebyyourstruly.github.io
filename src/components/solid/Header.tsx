@@ -50,7 +50,7 @@ export default function Header() {
     <header
       class="
         margin-bottom:50px
-        @non-mobile@border-bottom:1px_solid_var(--color-onBackground-base)
+        @min:500px@border-bottom:1px_solid_var(--color-onBackground-base)
       "
     >
       {/* Visible Header */}
@@ -100,7 +100,7 @@ export default function Header() {
             styleAs-button-icon
             margin-right:auto
 
-            @non-mobile@display:none
+            @min:500px@display:none
 
 
 
@@ -138,7 +138,7 @@ export default function Header() {
             display:flex
             column-gap:15px
 
-            @mobile@display:none
+            @max:500px@display:none
 
             >a?styleAs-link
             >a?text-align:center
@@ -238,7 +238,7 @@ export default function Header() {
           apply-transition
           transition-property:height
 
-          @non-mobile@display:none
+          @min:500px@display:none
 
 
 
