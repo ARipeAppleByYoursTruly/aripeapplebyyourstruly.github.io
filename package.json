@@ -12,9 +12,9 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/solid-js": "^4.0.1",
     "@csstools/normalize.css": "^12.1.1",
-    "@iconify/json": "^2.2.198",
+    "@iconify/json": "^2.2.199",
     "@iconify/utils": "^2.1.22",
-    "astro": "^4.5.16",
+    "astro": "^4.5.17",
     "cssesc": "^3.0.0",
     "solid-js": "^1.8.16",
     "typescript": "^5.4.4"

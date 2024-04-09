@@ -110,6 +110,8 @@ const config = Object.freeze({
     "rules",
     "rules - 500px breakpoint - max-width",
     "rules - 500px breakpoint - min-width",
+    "rules - 1000px breakpoint - max-width",
+    "rules - 1000px breakpoint - min-width",
     "variants - :hover",
     "variants - :focus-visible",
     "variants - :active"
@@ -204,8 +206,8 @@ function config_defineShortcuts() {
     "apply-interactive-textDecoration",
     `
     text-decoration:none
-    :hover?text-decoration:revert
-    :focus-visible?text-decoration:revert
+    :hover?text-decoration:underline
+    :focus-visible?text-decoration:underline
     `
   )
 
@@ -219,6 +221,8 @@ function config_defineShortcuts() {
 
     apply-transition
     transition-property:background-color,color,outline-color
+
+    cursor:pointer
 
     -webkit-tap-highlight-color:transparent
     `
@@ -235,7 +239,7 @@ function config_defineShortcuts() {
 
     apply-interactive-background
 
-    cursor:pointer
+    border:none
     `
   )
 
@@ -245,7 +249,6 @@ function config_defineShortcuts() {
     styleAs-button-base
     background:none
 
-    border:none
     border-radius:50%
 
     padding:5px
@@ -265,14 +268,20 @@ function config_defineShortcuts() {
     `
     styleAs-button-base
     apply-interactive-textDecoration
+
+    border-radius:1000px
+    padding:5px
+    font-size:1rem
     `
   )
 
   map.set(
     "styleAs-button-card",
     `
-    styleAs-button-text
+    styleAs-button-base
     styleAs-card
+
+    apply-interactive-textDecoration
     `
   )
 
@@ -404,6 +413,50 @@ function config_defineRules() {
 
       if (blueprint.layer === "") {
         blueprint.layer = config.layers.get("rules - 500px breakpoint - min-width")
+      }
+
+
+
+      isRuleHandled = true
+
+      return [isRuleHandled, blueprint]
+    },
+    // 1000px breakpoint - max-width
+    (isRuleHandled, blueprint) => {
+      let rule_match = blueprint.rule.match(/^@max:1000px@(.+):(.+)$/)
+
+      if (rule_match === null) {
+        return [isRuleHandled, blueprint]
+      }
+
+
+
+      blueprint.css.body = `${rule_match[1]}: ${rule_match[2].replaceAll("_", " ")}`
+
+      if (blueprint.layer === "") {
+        blueprint.layer = config.layers.get("rules - 1000px breakpoint - max-width")
+      }
+
+
+
+      isRuleHandled = true
+
+      return [isRuleHandled, blueprint]
+    },
+    // 1000px breakpoint - min-width
+    (isRuleHandled, blueprint) => {
+      let rule_match = blueprint.rule.match(/^@min:1000px@(.+):(.+)$/)
+
+      if (rule_match === null) {
+        return [isRuleHandled, blueprint]
+      }
+
+
+
+      blueprint.css.body = `${rule_match[1]}: ${rule_match[2].replaceAll("_", " ")}`
+
+      if (blueprint.layer === "") {
+        blueprint.layer = config.layers.get("rules - 1000px breakpoint - min-width")
       }
 
 
@@ -1132,6 +1185,16 @@ scaffolding.forEach((scaffold_layer, layer) => {
       indentLevel++
       break
 
+    case config.layers.get("rules - 1000px breakpoint - max-width"):
+      outputFileStream.write("@media screen and (max-width: 1000px) {\n")
+      indentLevel++
+      break
+
+    case config.layers.get("rules - 1000px breakpoint - min-width"):
+      outputFileStream.write("@media screen and (min-width: 1000px) {\n")
+      indentLevel++
+      break
+
     case config.layers.get("variants - :hover"):
       outputFileStream.write("@media (hover: hover) and (pointer: fine) {\n")
       indentLevel++
@@ -1184,6 +1247,8 @@ scaffolding.forEach((scaffold_layer, layer) => {
   switch (layer) {
     case config.layers.get("rules - 500px breakpoint - max-width"):
     case config.layers.get("rules - 500px breakpoint - min-width"):
+    case config.layers.get("rules - 1000px breakpoint - max-width"):
+    case config.layers.get("rules - 1000px breakpoint - min-width"):
     case config.layers.get("variants - :hover"):
       indentLevel--
       outputFileStream.write("}\n")

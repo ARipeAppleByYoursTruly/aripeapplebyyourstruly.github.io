@@ -20,9 +20,9 @@ export default function Header() {
   const [mobile_navMenu_isOpened, mobile_navMenu_isOpened_set] = createSignal(false)
   const [themeButton_isDarkTheme, themeButton_isDarkTheme_set] = createSignal(true)
 
-  let mobile_navMenu: HTMLElement
-  let mobile_navMenu_button: HTMLButtonElement
-  let mobile_navMenu_button_icon: HTMLDivElement
+  let mobile_navMenu!: HTMLElement
+  let mobile_navMenu_button!: HTMLButtonElement
+  let mobile_navMenu_button_icon!: HTMLDivElement
 
 
 
@@ -47,12 +47,7 @@ export default function Header() {
 
 
   return (
-    <header
-      class="
-        margin-bottom:50px
-        @min:500px@border-bottom:1px_solid_var(--color-onBackground-base)
-      "
-    >
+    <header class="@min:500px@border-bottom:1px_solid_var(--color-onBackground-base)">
       {/* Visible Header */}
       <div
         class="
@@ -91,7 +86,7 @@ export default function Header() {
 
         {/* Mobile - Expand nav menu button */}
         <Button_WithTooltip
-          ref={mobile_navMenu_button!}
+          ref={mobile_navMenu_button}
           tooltip={{
             text: mobile_navMenu_isOpened() ? "Close navigation menu" : "Open navigation menu",
             position: "bottom"
@@ -123,7 +118,7 @@ export default function Header() {
           }}
         >
           <div
-            ref={mobile_navMenu_button_icon!}
+            ref={mobile_navMenu_button_icon}
             inert
             class="
               icon-base
@@ -224,7 +219,7 @@ export default function Header() {
 
       {/* Mobile - Nav menu */}
       <nav
-        ref={mobile_navMenu!}
+        ref={mobile_navMenu}
         class="
           border-bottom:1px_solid_var(--color-onBackground-base)
 
@@ -242,7 +237,8 @@ export default function Header() {
 
 
 
-          >a?styleAs-button-text
+          >a?styleAs-button-base
+          >a?apply-interactive-textDecoration
 
           >a?border-top:1px_solid_var(--color-onBackground-base)
           >a?outline-offset:-3px

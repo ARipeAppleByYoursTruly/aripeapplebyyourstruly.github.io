@@ -43,9 +43,7 @@ const {pageTitle, githubRepo} = Astro.props as {
 <body>
   <Header client:load/>
 
-  <main>
-    <slot/>
-  </main>
+  <slot/>
 
   <Footer githubRepo={githubRepo}/>
 </body>
