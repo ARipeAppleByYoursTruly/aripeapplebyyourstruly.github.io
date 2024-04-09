@@ -1,0 +1,21 @@
+---
+import Layout_Base from "@layouts/astro/Layout_Base.astro"
+
+
+
+const {pageTitle, githubRepo} = Astro.props as {
+  pageTitle: string,
+  githubRepo: string
+}
+---
+
+
+
+<Layout_Base
+  pageTitle={pageTitle}
+  githubRepo={githubRepo}
+>
+  <main class="margin:50px_0">
+    <slot/>
+  </main>
+</Layout_Base>
