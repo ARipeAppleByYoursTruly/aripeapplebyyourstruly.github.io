@@ -267,7 +267,6 @@ function config_defineShortcuts() {
     "styleAs-button-text",
     `
     styleAs-button-base
-    apply-interactive-textDecoration
 
     border-radius:1000px
     padding:5px
